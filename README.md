@@ -83,3 +83,10 @@ docker run -it --rm -p 3000:3000 --link mongodb:db -e "MONGO_URL=mongodb://db" -
 
 ### Premium Support ###
 Have an urgent issue or want help with implementation? Start a conversation with [Meteor Factory](http://meteorfactory.io).
+
+
+### what's in this fork ###
+Meteor@1.6 
+solves the 'bson' problem aka : meteor Error: Cannot find module 'bson' 
+by using this comment
+https://github.com/meteor/meteor/issues/7477#issuecomment-249743787
