@@ -2,11 +2,19 @@
 	<div class="template-profile">
 		<div class="container">
 			<div class="row">
-				{{#autoForm id="updatePicture" collection=Users doc=User type="update"}}
+				{{#if User.services.google.picture}}
 				<div class="col-md-4">
-						{{> afQuickField name="profile.picture"}}
+				<img  src="{{User.services.google.picture}}" height="120px" width="120px"/> 
+
 				</div>
-				{{/autoForm}}
+				{{else}}
+					{{#autoForm id="updatePicture" collection=Users doc=User type="update"}}
+						<div class="col-md-4">
+						{{> afQuickField name="profile.picture"}}
+						</div>
+					{{/autoForm}}
+				
+				{{/if}}
 				{{#autoForm id="updateProfile" collection=Users doc=User type="update"}}
 				<div class="col-md-8">
 					{{> afQuickField name='profile' omitFields="profile.picture"}}

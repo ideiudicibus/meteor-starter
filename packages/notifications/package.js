@@ -23,26 +23,26 @@ Package.onUse(function(api) {
 
   api.addFiles(
       [
-        'lib/both/collections.coffee',
-        'lib/both/router.coffee'
+        'lib/both/collections.js',
+        'lib/both/router.js'
       ],
       both);
 
   api.addFiles(
       [
         'lib/client/templates.html',
-        'lib/client/templates.coffee',
-        'lib/client/helpers.coffee',
-        'lib/client/tracker.coffee',
+        'lib/client/templates.js',
+        'lib/client/helpers.js',
+        'lib/client/tracker.js',
         'lib/client/style.less'
       ],
       'client');
 
   api.addFiles(
       [
-        'lib/server/allow.coffee',
-        'lib/server/publish.coffee',
-        'lib/server/methods.coffee'
+        'lib/server/allow.js',
+        'lib/server/publish.js',
+        'lib/server/methods.js'
       ],
       'server');
 });

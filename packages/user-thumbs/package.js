@@ -22,10 +22,10 @@ Package.onUse(function(api) {
 	 api.addFiles(
 		[
 			'lib/client/templates.html',
-			'lib/client/templates.coffee',
-			'lib/client/helpers.coffee',
+			'lib/client/templates.js',
+			'lib/client/helpers.js',
 			'lib/client/templates.less',
-      'lib/client/utils.coffee'
+      'lib/client/utils.js'
 		],
 		'client')
 

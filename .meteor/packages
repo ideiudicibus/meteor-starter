@@ -76,4 +76,6 @@ facebook-config-ui
 google-config-ui
 twitter-config-ui
 dynamic-import
-cfs:gridfs
+ecmascript
+cfs:autoform
+cfs:filesystem

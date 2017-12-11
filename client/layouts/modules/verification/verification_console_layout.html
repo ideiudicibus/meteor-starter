@@ -1,0 +1,17 @@
+<template name="verificationConsoleLayout">
+    <div class="layout master-layout {{$.Session.get 'sidebar'}}">
+        {{> navbar}} 
+        {{#momentum plugin='iron-router' options=momentumIRTransition}}
+
+        <div class="container-fluid">
+            <div class="row">
+                {{>verificationConsoleSidebar}} 
+                {{>yield}}
+            </div>
+        </div>
+        {{/momentum}}
+    </div>
+
+    <!-- Prevent footer from popping up when route loading -->
+    {{#if isRouteReady}} {{> footer}} {{/if}} {{> autoformModals}}
+</template>

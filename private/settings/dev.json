@@ -5,7 +5,7 @@
         "ga": {
             "id": "UA-XXXXXXXX-1"
         },
-        "mixpanel": {
+    "mixpanel": {
             "token": "xxxxxxxxxxxxxxxxxxxxxxxxxxx",
             "identifyUsers": true
         }
@@ -16,8 +16,8 @@
             "secret": "7fca074e2399419013545919090850ce"
         },
         "google": {
-          "clientId" : "xxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com",
-          "secret" : "xxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "clientId" : "396435788240-f87dnuohe644jsuc3nohv6g0mbs152h1.apps.googleusercontent.com",
+          "secret" : "eAXiPqZ1Dk250EJLSksZMmC9",
           "loginStyle" : "popup"
         }
     }
