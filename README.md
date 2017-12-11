@@ -1,7 +1,10 @@
 Meteor Starter
 ==============
 
-A Meteor boilerplate with a lot packed in. Written in Coffeescript.
+A Meteor boilerplate with a lot packed in. Originally written in Coffeescript.
+This branche has been decaffeinated using:
+
+[Decaffeinate Project](http://decaffeinate-project.org/)
 
 [Tutorials](http://learn.meteorfactory.io/meteor-starter/)
 
@@ -9,13 +12,16 @@ A Meteor boilerplate with a lot packed in. Written in Coffeescript.
 
 Maintained by [Meteor Factory](https://meteorfactory.io). Professional Meteor development.
 
+This branch is mantained by me.
+
 [![Meteor starter](https://raw.githubusercontent.com/yogiben/meteor-starter/master/readme/meteor-factory.jpg)](http://meteorfactory.io)
 
 ### Setup ####
 
 ```
-git clone https://github.com/yogiben/meteor-starter.git myapp
+git clone https://github.com/ideiudicibus/meteor-starter.git myapp
 cd myapp
+git checkout 1.6-BRANCH
 meteor
 ```
 
