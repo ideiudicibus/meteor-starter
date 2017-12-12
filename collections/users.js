@@ -49,7 +49,8 @@ Schemas.UserProfile = new SimpleSchema({
       type: 'map',
       geolocation: true,
       searchBox: true,
-      autolocate: true
+      autolocate: true,
+      zoom:10
     }
   },
 

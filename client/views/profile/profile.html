@@ -5,12 +5,14 @@
 				{{#if User.services.google.picture}}
 				<div class="col-md-4">
 				<img  src="{{User.services.google.picture}}" height="120px" width="120px"/> 
-
+				
+				
 				</div>
 				{{else}}
 					{{#autoForm id="updatePicture" collection=Users doc=User type="update"}}
 						<div class="col-md-4">
 						{{> afQuickField name="profile.picture"}}
+						<button type="submit" class="btn btn-primary">{{_ "update"}}</button>
 						</div>
 					{{/autoForm}}
 				
