@@ -19,7 +19,7 @@
 				{{/if}}
 				{{#autoForm id="updateProfile" collection=Users doc=User type="update"}}
 				<div class="col-md-8">
-					{{> afQuickField name='profile' omitFields="profile.picture"}}
+					{{> afQuickField name='profile' omitFields="profile.picture,profile.playagentProfile.stripeCustomerId"}}
 					<button type="submit" class="btn btn-primary">{{_ "update"}}</button>
 				</div>
 				{{/autoForm}}

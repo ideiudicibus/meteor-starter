@@ -1,0 +1,36 @@
+<template name="playagentDashboardSidebar">
+    <div id="dashboardSidebar">
+
+        <div class="col-md-2">
+            <!-- Left column -->
+            <a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Tools</strong></a>
+            <hr>
+
+            <ul class="nav nav-pills nav-stacked">
+            
+                <li class="{{activePath 'playagentCashDepositDashboard' }} "><a href="{{pathFor 'playagentCashDepositDashboard'}}">{{_ "playagentCashDepositDashboard"}}</a></li>
+               
+                <li class="{{activePath 'playagentPlayersDashboard'  }}"><a href="{{pathFor 'playagentPlayersDashboard'}}">{{_ "playagentPlayersDashboard"}}</a></li>
+                <li class="{{activePath 'ordersDashboard'  }}"><a href="{{pathFor 'ordersDashboard'}}">{{_ "ordersDashboard"}}</a></li>
+
+                
+
+                {{#if isInRole 'admin'}}
+                <li class="{{activePath 'scrapeFromTM'  }}"><a href="{{pathFor 'scrapeFromTM'}}">{{_ "scrape"}}</a></li>
+                {{/if}}
+                <!--
+                <li><a href=" {{pathFor 'ordersDashboard'}}">{{_ "ordersDashboard"}}</a></li>
+
+                <li><a href="{{pathFor 'postsDashboard'}}">{{_ "postsDashboard"}}</a></li>
+                {{#if isInRole 'admin'}}
+                <li><a href="{{pathFor 'adminDashboard'}}">{{_ "admin"}}</a></li>
+                <li><a href="{{pathFor 'tmscrape'}}">{{_ "scrape"}}</a></li>
+                {{/if}}
+            -->
+            </ul>
+
+        </div>
+    </div>
+
+
+</template>

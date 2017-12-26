@@ -1,11 +1,41 @@
 <template name="adminUserCell">
-  <a href="{{pathFor 'adminDashboardUsersEdit' _id=doc.owner}}" class="label label-default">
-    {{value}}
-  </a>
-</template>
-
-<template name="adminPostCell">
-  <a href="{{pathFor 'adminDashboardPostsEdit' _id=doc.doc}}" class="label label-default">
-    {{value}}
-  </a>
-</template>
+    <a href="{{pathFor 'adminDashboardUsersEdit' _id=doc.owner}}" class="label label-default">
+      {{value}}
+    </a>
+  </template>
+  
+  <template name="adminPostCell">
+    <a href="{{pathFor 'adminDashboardPostsEdit' _id=doc.doc}}" class="label label-default">
+      {{value}}
+    </a>
+  </template>
+  
+  <template name="playerNameCell">
+    <a href="{{pathFor 'adminDashboardPlayersEdit' _id=doc.player}}" class="label label-default">
+      {{playerFullName value}}
+    </a>
+  </template>
+  
+  <template name="sellerClubNameCell">
+    <a  href="{{pathFor 'adminDashboardClubsEdit' _id=doc.seller_club}}" class="label label-default">
+      {{clubName value}}
+    </a>
+  </template>
+  
+  <template name="buyerClubNameCell">
+    <a  href="{{pathFor 'adminDashboardClubsEdit' _id=doc.buyer_club}}" class="label label-default">
+      {{clubName value}}
+    </a>
+  </template>
+  
+  <template name="clubNameCell">
+    <a  href="{{pathFor 'adminDashboardClubsEdit' _id=doc.club}}" class="label label-default">
+      {{clubName value}}
+    </a>
+  </template>
+  
+  <template name="formattedDateCell">
+    <span class="label label-default">
+      {{formatDateTime value}}
+    </span>
+  </template>

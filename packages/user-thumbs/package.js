@@ -12,7 +12,6 @@ Package.onUse(function(api) {
 
 	api.use(
 		[
-			'coffeescript',
 			'less@2.5.1',
 			'templating',
 			'yogiben:helpers@0.0.1'

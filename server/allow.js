@@ -48,3 +48,30 @@ Meteor.users.allow({
 		}
 	}
 });
+
+
+
+Players.allow({
+	insert: function(userId, doc) {
+	  return userId === doc.owner;
+	},
+	update: function(userId, doc, fields, modifier) {
+	  return userId === doc.owner;
+	},
+	remove: function(userId, doc) {
+	  return userId === doc.owner;
+	}
+  });
+  
+  
+  Orders.allow({
+	insert: function(userId, doc) {
+	  return userId === doc.issuer;
+	},
+	update: function(userId, doc, fields, modifier) {
+	  return userId === doc.issuer;
+	},
+	remove: function(userId, doc) {
+	  return userId === doc.issuer;
+	}
+  });

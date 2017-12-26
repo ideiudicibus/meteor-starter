@@ -1,0 +1,131 @@
+<template name="singlePlayer">
+    <div class="col-md-10">
+        <div class="row">
+
+<div class="panel panel-default">
+    <div class="panel-heading" >{{player.fullName}} {{_ "details"}}</div>
+    <div class="panel-body">
+
+        <div class="col-md-3 ">
+            <div align="center">
+                {{#with getDoc player.picture 'ProfilePictures'}}
+                <img src="{{url store='thumbs'}}" data-playerProfileImg="{{url store='thumbs'}}" class="img-responsive ">
+                {{/with}}
+                
+            </div>
+
+            <div class="span4">
+                <blockquote>
+                    <p>{{player.fullName}}</p>
+                    <small><cite >{{player.nationality}} - {{player.birthPlace}}  <i class="icon-map-marker"></i></cite></small>
+                </blockquote>
+                <p>
+                    
+
+                        <strong>Current Club</strong>
+                        <p>{{player.currentClub}}</p>
+                        <hr>
+                        <strong>Current Agent</strong>
+                        <p>{{player.currentAgent}}</p>
+                        <hr>
+                        <strong>Birth Date</strong>
+                        <p>{{Utils.formatDate player.birthDate}}</p>
+                        <hr>
+                        <ul class="list-unstyled hover-box">
+                                <li><i class="glyphicon glyphicon-euro"></i> Market Value: {{ Utils.formatMoney player.marketValue
+                                    2}}</li>
+                                <li><i class="glyphicon glyphicon-euro"></i> Capitalization: {{ Utils.formatMoney player.capitalization
+                                    2 }}</li>
+                                <li><i class="glyphicon glyphicon-star"></i> Rating: {{player.rating}}</li>
+                            </ul>
+                            <!--
+                            <div class="rating-block">
+                                    <h4>Average user rating</h4>
+                                    <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
+                                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align"></button>
+                                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    </button>
+                                </div>-->
+                </p>
+            </div>
+        </div>
+        <div class="col-md-9 ">
+            <div class="bio-box ">
+                
+
+                {{#with getDoc player.biography 'Posts'}}
+                <span class="pull-right">
+                        <i class="fa fa-thumbs-up"></i> {{#with favoritesByDoc _id}}{{count}}{{/with}}
+                        <i class="fa fa-comments"></i> {{commentCount _id}}
+                    </span>
+                <div >
+                    <strong>{{title}}</strong>
+                    <p>{{{content}}}</p>
+    
+                </div>
+                <div class="panel-footer">
+                    {{> favoriteButton _id=_id}}
+                    {{> commentFormToggle }}
+                    {{> comments}}
+                </div>
+                {{/with}}
+               
+               
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</div>
+<div class="row">
+    {{>transfersByPlayerCollectionTable}}
+</div>
+<div class="row">
+    {{>statsByPlayerCollectionTable}}
+    </div>
+</div>
+
+</template>
+
+
+
+<template name="transfersByPlayerCollectionTable">
+        <div id="playerTransferTable">
+            <div class="panel panel-default">
+                <div class="panel-heading">Transfer History
+                </div>
+                <div class="panel-body">
+    
+                    {{> reactiveTable collection=transfers settings=transfersByPlayerSettings}}
+                </div>
+            </div>
+    
+        </div>
+    </template>
+    
+    <template name="statsByPlayerCollectionTable">
+        <div id="playerStatsTable">
+            <div class="panel panel-default">
+                <div class="panel-heading">Transfer History
+                </div>
+                <div class="panel-body">
+    
+                    {{> reactiveTable collection=playerStats settings=statsByPlayerSettings}}
+                </div>
+            </div>
+    
+        </div>
+    </template>

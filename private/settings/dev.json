@@ -15,8 +15,6 @@
     "private": {
         "MAIL_URL": "smtp://postmaster%40sandbox60024.mailgun.org:95yxhgv0vcs6@smtp.mailgun.org:587",
         "stripe": "sk_test_CyvOBwR6lWNECvsSSWBVVlBt",
-        "twitter_refresh_interval": 5000,
-        "twitter_screen_name": "CalcioMercato IT",
         "twitter_consumer_key": "ZZvJYVd1kZuXukEyaIokamQqh",
         "twitter_consumer_secret": "VpVllFAQ1H0hhtNuffQhnhTjGQvYVX5pkHhf9kADctDV18M8NG",
         "twitter_access_token": "20042780-YCSEV0R7lihmEX1twMnexqpkbNAtIJFHGUDIJemmu",

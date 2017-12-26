@@ -1,0 +1,136 @@
+<template name="ordersDashboard">
+        <div id="ordersDashboard">
+                <div class="col-md-10">
+                        <div class="row">
+
+                                {{#each balancesTotals}}
+                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                        <div class="widget">
+                                                <div class="widget-heading clearfix">
+                                                        <div class="pull-left">{{_id}}</div>
+                                                        <div class="pull-right"><i class="fa {{Utils.faAngleClass this}}"></i><sup>{{Utils.calculateAndFormatCapitalGain this}}%</sup></div>
+                                                </div>
+                                                <div class="widget-body ">
+                                                        <p>Capitalization {{Utils.formatMoneyEuro totalBuy}}</p>
+                                                </div>
+                                        </div>
+                                </div>
+                                {{/each}}
+
+
+                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                        <div>
+                                                <div>
+                                                        {{#afModal formId ="issueNewOrderForm" title="Create Order" omitFields="createdAt,updatedAt,issuer" class="text-primary"
+                                                        collection="Orders" operation="insert"}}
+                                                        <button type="button" class="btn btn-labeled btn-default" id="issueOrder">
+                                                        <span class="btn-label-subaction"><i class="glyphicon glyphicon-plus"></i></span>
+                                                        Capitalize Player</button>
+                                                        {{/afModal}}
+
+                                                </div>
+
+                                        </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                                <div class="widget ">
+                                                                <div class="{{cashColour}} clearfix">
+                                                                        <div >My Cash: {{Utils.formatMoneyEuro User.profile.playagentProfile.cashDeposit}}</div>
+                                                                </div>
+
+                                                        </div>
+
+                                </div>
+                        </div>
+
+
+                        <hr>
+
+                        <div class="row">
+
+
+                                <!-- center left-->
+                                <div class="col-md-6">
+                                        <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                        <i class="fa fa-heart"></i><span style="margin-left:10px"> My Balances</span>
+                                                </div>
+                                                <div class="panel-body">
+                                                        {{> reactiveTable collection=balancesTotals settings=balanceTotalsCollectionSettings}}
+                                                </div>
+                                                <!--/panel-body-->
+                                        </div>
+                                </div>
+                                <!--/col-->
+                                <div class="col-md-6">
+                                        <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                        <i class="fa  fa-shopping-cart"></i><span style="margin-left:10px"> My Orders</span>
+                                                </div>
+                                                <div class="panel-body">
+                                                        {{> reactiveTable collection=orders settings=ordersCollectionSettings }}
+
+                                                </div>
+                                                <!--/panel-body-->
+                                        </div>
+
+
+                                </div>
+                                <!--/col-span-6-->
+
+                        </div>
+                        <!--/row-->
+                        <hr>
+
+                        <div class="row">
+                                <div class="col-md-12">
+                                        <a href="#"><strong><i class="glyphicon glyphicon-comment"></i> Discussions</strong></a>
+
+                                        <ul class="list-group">
+                                                <li class="list-group-item"><a href="#"><i class="glyphicon glyphicon-flash"></i> <small>(3 mins ago)</small> The 3rd page reports don't contain any links. Does anyone know why..</a></li>
+                                                <li class="list-group-item"><a href="#"><i class="glyphicon glyphicon-flash"></i> <small>(1 hour ago)</small> Hi all, I've just post a report that show the relationship betwe..</a></li>
+                                                <li class="list-group-item"><a href="#"><i class="glyphicon glyphicon-heart"></i> <small>(2 hrs ago)</small> Paul. That document you posted yesterday doesn't seem to contain the over..</a></li>
+                                                <li class="list-group-item"><a href="#"><i class="glyphicon glyphicon-heart-empty"></i> <small>(4 hrs ago)</small> The map service on c243 is down today. I will be fixing the..</a></li>
+                                                <li class="list-group-item"><a href="#"><i class="glyphicon glyphicon-heart"></i> <small>(yesterday)</small> I posted a new document that shows how to install the services layer..</a></li>
+                                                <li class="list-group-item"><a href="#"><i class="glyphicon glyphicon-flash"></i> <small>(yesterday)</small> ..</a></li>
+                                        </ul>
+                                </div>
+                        </div>
+                </div>
+                <!--/col-span-10-->
+
+
+
+
+
+
+        </div>
+</template>
+
+<template name="orderWidgets">
+
+</template>
+
+
+<template name="pricesHistoryDashboard">
+
+        <div class="container">
+                <div class="row">
+
+                        <div class="col-sm-4 col-xs-4">
+                                {{#with playerByTicker}} {{ticker}} {{/with}}
+                        </div>
+                </div>
+
+                <div class="row">
+                        <div class="col-sm-8 col-xs-8">
+                                <div class="pricesHistoryChart"></div>
+                        </div>
+                </div>
+
+        </div>
+
+
+</template>
+
+<template name="modalIssueOrder"></template>

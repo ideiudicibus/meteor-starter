@@ -13,7 +13,27 @@ Schemas.Posts = new SimpleSchema({
 		type:String,
 		max: 60
 	},
-
+	content: {
+		type: String,
+		label: "Write your post here",
+		autoform: {
+		  type: 'tinyMCE',
+		  data: {
+						  
+			  height: 300,
+			  statusbar: true,
+			  menubar: true,
+			  toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+			  plugins: [
+				"advlist autolink lists link image charmap print preview anchor",
+				"visualblocks code",
+				"insertdatetime media table contextmenu paste"
+			],
+			  media_live_embeds: true
+		  }
+	  }
+	  },
+/*
 	content: {
 		type: String,
 		autoform: {
@@ -21,6 +41,7 @@ Schemas.Posts = new SimpleSchema({
 		}
 	},
 
+	*/
 	createdAt: {
 		type: Date,
 		autoValue() {
@@ -42,11 +63,13 @@ Schemas.Posts = new SimpleSchema({
 
 	picture: {
 		type: String,
+		optional: true,
+
 		autoform: {
 			afFieldInput: {
 				type: "fileUpload",
 				collection: 'Attachments',
-				  uploadProgressTemplate: 'myUploadProgressTemplate'
+				  uploadProgressTemplate: 'customSpinner'
 			}
 		}
 	},
@@ -69,7 +92,14 @@ Schemas.Posts = new SimpleSchema({
 				);
 			}
 		}
-	}
+	},
+	tags:{
+		type:[String],
+		autoform: {
+		  type: 'tags'
+		},
+		optional: true
+	  }
 });
 
 Posts.attachSchema(Schemas.Posts);
