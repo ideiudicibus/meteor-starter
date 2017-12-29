@@ -65,7 +65,7 @@
 							{{> avatar userId=owner shape="circle"}}
 						</a>
 						<div class="media-body">
-							<p>{{content}}</p>
+							<p>{{{content}}}</p>
 							{{#if $eq owner User._id}}
 							<small>
 								{{#afModal title="Update post" omitFields="createdAt,updatedAt,owner" class="text-primary" collection="Posts" operation="update" doc=_id}}

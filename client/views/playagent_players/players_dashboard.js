@@ -17,7 +17,7 @@ Template.playagentPlayersDashboard.helpers({
             fields: [{
                 key: 'actions', label: 'Actions',
                 fn: function (value, object, key) {
-                    console.log(object);
+                    
                     return Spacebars.SafeString('<a href="' +
                         Router.path("singlePlayer", { '_id': object._id}) +
                         '"><i class="glyphicon glyphicon-zoom-in"></i></a>');

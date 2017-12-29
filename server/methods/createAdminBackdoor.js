@@ -15,4 +15,14 @@ Meteor.methods({
         console.log(e);
         throw new Meteor.Error(e);
       }
-    }});
+    },
+    addSomeCashBackdoor(userId,num) {
+      try {
+      
+      console.log(userId,num);
+      }catch(e){
+        
+        throw new Meteor.Error(e);
+      }
+    }
+  });

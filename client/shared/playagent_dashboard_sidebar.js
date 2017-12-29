@@ -6,3 +6,6 @@ Template.playagentDashboardSidebar.helpers({
      return  Spacebars.SafeString('');;
     }
 })
+
+
+Template.playagentDashboardSidebar.events({});

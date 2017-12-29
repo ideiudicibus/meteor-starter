@@ -9,7 +9,7 @@ this.Orders = new Mongo.Collection('orders');
 this.UserPlayerBalances = new Mongo.Collection('userPlayerBalances');
 
 this.BalancesTotal = new Mongo.Collection('balancesTotal');
-
+this.UserBalancesTotal = new Mongo.Collection('userBalancesTotal');
 this.PricesHistory = new Mongo.Collection('pricesHistory')
 
 /** Agent */
@@ -115,20 +115,20 @@ Schemas.PlayerProfile = new SimpleSchema({
   }
   }*
   */
-  biography:{
+  biography: {
 
     type: String,
     optional: true,
     autoform: {
       options: function () {
-        return _.map(Posts.find({tags:"bio"}).fetch(), function (post) {
+        return _.map(Posts.find({ tags: "bio" }).fetch(), function (post) {
           return {
-            label:post.title,
+            label: post.title,
             value: post._id
           };
         });
       }
-    } 
+    }
 
   },
   rating: {
@@ -220,17 +220,17 @@ Schemas.PlayerProfile = new SimpleSchema({
     label: "current Club",
     optional: true
   },
-/*
-  currentContractFrom: {
-    type: Date,
-    label: "current contract start",
-    optional: true
-  },
-  currentContractTo: {
-    type: Date,
-    label: "current contract end",
-    optional: true
-  },*/
+  /*
+    currentContractFrom: {
+      type: Date,
+      label: "current contract start",
+      optional: true
+    },
+    currentContractTo: {
+      type: Date,
+      label: "current contract end",
+      optional: true
+    },*/
 
   transferMarktPlayerId: {
     type: String,
@@ -855,21 +855,20 @@ Orders.before.insert(
 
 
   function (userId, doc) {
-  
+
 
     if (Meteor.isServer) {
-        //calculate user deposit cash
-        //then allow order or not
-        var user=Meteor.user();
-        console.log(user);
-        return;
-        var cash=user.profile.playagentProfile.cashDeposit;
-        var issueNewOrderWD=(cash && cash>0 && cash>=doc.price)
-        if(!issueNewOrderWD){
-          throw new Meteor.Error(null, 'insufficient cash',null);
-       
+      //calculate user deposit cash
+      //then allow order or not
+      var user = Meteor.user();
+
+      var cash = user.profile.playagentProfile.cashDeposit;
+      var issueNewOrderWD = (cash && cash > 0 && cash >= doc.price)
+      if (!issueNewOrderWD) {
+        throw new Meteor.Error(null, 'insufficient cash', null);
+
+      }
     }
-  }
   }
 
 );
@@ -883,42 +882,36 @@ Orders.before.insert(
 Orders.after.insert(function (userId, doc) {
 
   if (Meteor.isServer) {
-    var currentValorization = (0.1 * (doc.price));
-    var ratio = Orders.find({ ticker: doc.ticker, _id: { $ne: doc._id } }).count();
 
-    var nextPrize = 0.0;
-    var increment = 0.0;
 
-    if (ratio == 0) {
-      increment = 0.0;
-      nextPrize = doc.price;
+    Meteor.call('calculateUserBalances', userId, doc, function (error, result) {
+      if (error) {
 
-      UserPlayerBalances.insert({ owner: userId, ticker: doc.ticker, prize: nextPrize, lastPrize: doc.price });
-    }
-    else {
-      increment = currentValorization / ratio;
-      var updated = UserPlayerBalances.update({ ticker: doc.ticker }, { $inc: { prize: increment } }, { multi: true });
-      nextPrize = doc.price - currentValorization;
-      UserPlayerBalances.insert({ owner: userId, ticker: doc.ticker, prize: nextPrize, lastPrize: doc.price });
+        console.log(error);
+      }
 
-    }
-    /**
-     * update player capitalization
-     */
-    var groupOrders = [{ $match: { ticker: doc.ticker } }, { $group: { _id: "$ticker", totalPrice: { $sum: "$price" } } }]
-    var newCapitalization = Orders.aggregate(groupOrders);
+    })
 
-    Players.update({ ticker: doc.ticker }, { $set: { capitalization: newCapitalization.value } });
 
-    Meteor.users.update({_id:userId}, {$inc: {"profile.playagentProfile.cashDeposit":-(doc.price) }});
+    Meteor.call('updatePlayerCapitalization', doc.ticker, function (error, result) {
+
+      if (error) {
+
+        console.log(error);
+      }
+    });
+    
+    Meteor.users.update({ _id: doc.issuer }, { $inc: { "profile.playagentProfile.cashDeposit": -(doc.price) } });
+    Meteor.call('notifyUserOrderActivity', doc, function (error, result) { })
     /**
      * update the price history for orders' ticker
-     */
+     
     PricesHistory.upsert({ ticker: doc.ticker }, {
       $push: {
         prices: [
           new Date().getTime(),
-          doc.price
+          doc.price,
+          doc._id
         ]
       },
       $set: {
@@ -926,6 +919,8 @@ Orders.after.insert(function (userId, doc) {
       }
     });
 
+   
+  */
   }
   else {
 

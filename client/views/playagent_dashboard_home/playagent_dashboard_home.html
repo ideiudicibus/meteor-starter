@@ -1,0 +1,48 @@
+<template name="playagentHomeDashboard">
+
+    <div class="homeDashboard">
+        {{>navigationBoxes}}
+    </div>
+</template>
+
+<template name="navigationBoxes">
+    <div id="widgets">
+        <div class="container">
+            <div class="space">
+                <div class="row">
+
+                    <div class="col-md-4">
+
+                        <div class="widget widget-call-to-action well-default">
+                            <a href="{{pathFor 'playagentCashDepositDashboard'}}">
+                                <h3 class="widget-title">Deposit your cash</h3>
+                                <p class="text-white">show us trust, join our shared players properties platform</p>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="widget widget-call-to-action well-primary">
+                            <a href="{{pathFor 'playagentPlayersDashboard'}}">
+                                <h3 class="widget-title">Browse our players</h3>
+                                <p class="text-white">buy fractions of shared properties available on the platform</p>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="widget widget-call-to-action well-secondary">
+                            <a href="{{pathFor 'ordersDashboard'}}">
+                            <h3 class="widget-title">Get exicted about player's market interest</h3>
+                            <p class="text-white">on the next transfer, your cash would be interesting as well!</p>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</template>

@@ -63,11 +63,11 @@
                                 </div>
                                 <!--/col-->
                                 <div class="col-md-6">
-                                        <div class="panel panel-default">
+                                        <div class="panel panel-default" >
                                                 <div class="panel-heading">
                                                         <i class="fa  fa-shopping-cart"></i><span style="margin-left:10px"> My Orders</span>
                                                 </div>
-                                                <div class="panel-body">
+                                                <div class="panel-body"  >
                                                         {{> reactiveTable collection=orders settings=ordersCollectionSettings }}
 
                                                 </div>
@@ -84,8 +84,8 @@
 
                         <div class="row">
                                 <div class="col-md-12">
-                                        <a href="#"><strong><i class="glyphicon glyphicon-comment"></i> Discussions</strong></a>
-
+                                        <a href="#"><strong><i class="glyphicon glyphicon-comment"></i> Activity Streams</strong></a>
+<!--
                                         <ul class="list-group">
                                                 <li class="list-group-item"><a href="#"><i class="glyphicon glyphicon-flash"></i> <small>(3 mins ago)</small> The 3rd page reports don't contain any links. Does anyone know why..</a></li>
                                                 <li class="list-group-item"><a href="#"><i class="glyphicon glyphicon-flash"></i> <small>(1 hour ago)</small> Hi all, I've just post a report that show the relationship betwe..</a></li>
@@ -94,6 +94,19 @@
                                                 <li class="list-group-item"><a href="#"><i class="glyphicon glyphicon-heart"></i> <small>(yesterday)</small> I posted a new document that shows how to install the services layer..</a></li>
                                                 <li class="list-group-item"><a href="#"><i class="glyphicon glyphicon-flash"></i> <small>(yesterday)</small> ..</a></li>
                                         </ul>
+                                -->
+                              
+        
+      
+      
+       
+        <ul class="list-group">
+                        {{#each Notifications limit=10 unreadFirst=true}}
+                        <li class="list-group-item"><a href="{{link}}"><i class="glyphicon glyphicon-flash"></i> <small>{{ago}}</small>{{title}}</a></li>
+                        {{/each}}    
+                </ul>
+     
+      
                                 </div>
                         </div>
                 </div>

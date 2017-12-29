@@ -3,6 +3,24 @@
  */
 
 
+AutoForm.hooks({'commentForm': {
+    onSuccess: function(formType, result) {
+        Meteor.call('notifyUserCommentActivity',result,function(error,result){
+
+        })
+    },
+    onError(operation, error, template) {
+        return sAlert.error(error);
+  },
+  
+    formToDoc(doc, ss, formId) {
+        doc.doc = Template.instance().data.commentDocId;
+        doc.owner = Meteor.userId();
+        return doc;
+  }
+  }
+  });
+
 
 Template.transfersByPlayerCollectionTable.helpers({
 
