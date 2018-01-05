@@ -101,7 +101,17 @@ Template.playagentCashDepositDashboard.onCreated(function () {
                             currency: checkoutParams.currency || "eur",
                             customer: createdCustomer.id,
                             description: checkoutParams.description || "NO_GIVEN_DESCRIPTION"
-                        }
+                        };
+                        Meteor.call('updateUserProfile',customer,(error,response)=>{
+                            if (error) {
+
+                                sAlert.error(error.reason);
+                            } else {
+
+                                sAlert.error('payment succeed');
+
+                            }
+                        });
 
                         Meteor.call('stripeChargeCustomer', charge, (error, response) => {
 
