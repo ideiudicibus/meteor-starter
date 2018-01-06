@@ -1,7 +1,7 @@
 Metheor.methods({
 
 
-    'updateUserProfile': (customer)=>{
+    'updateUserStripeProfile': (customer)=>{
 
         let userId=Meteor.userId();
         let stripeCustomerId=customer.id;

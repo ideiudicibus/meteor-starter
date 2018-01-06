@@ -102,13 +102,13 @@ Template.playagentCashDepositDashboard.onCreated(function () {
                             customer: createdCustomer.id,
                             description: checkoutParams.description || "NO_GIVEN_DESCRIPTION"
                         };
-                        Meteor.call('updateUserProfile',customer,(error,response)=>{
+                        Meteor.call('updateUserStripeProfile',customer,(error,response)=>{
                             if (error) {
 
                                 sAlert.error(error.reason);
                             } else {
 
-                                sAlert.error('payment succeed');
+                                sAlert.info('customer id updated');
 
                             }
                         });
@@ -120,7 +120,7 @@ Template.playagentCashDepositDashboard.onCreated(function () {
                                 sAlert.error(error.reason);
                             } else {
 
-                                sAlert.error('payment succeed');
+                                sAlert.info('payment succeed');
 
                             }
                         });
