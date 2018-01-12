@@ -1,4 +1,5 @@
 Meteor.methods({
+  /*
     'calculateUserBalancesFromLastOrder':function(){
       
 
@@ -33,12 +34,13 @@ Meteor.methods({
       }
       return true;
 
-    },
+    },*/
 
-    'calculateUserBalances':function(userId,order){
+    'calculateUserBalances':function(order){
         try{
         var currentValorization = (0.1 * (order.price));
-        var ratio = Orders.find({ ticker: order.ticker, _id: { $ne: order._id } }).count();
+        
+        var ratio = Orders.find({ ticker: order.ticker, _id: { $ne: order._id },issuer:{$ne:order.issuer} }).count();
     
         var nextPrize = 0.0;
         var increment = 0.0;
@@ -51,7 +53,7 @@ Meteor.methods({
         }
         else {
           increment = currentValorization / ratio;
-          var updated = UserPlayerBalances.update({ ticker: order.ticker }, { $inc: { prize: increment } }, { multi: true });
+          var updated = UserPlayerBalances.update({ ticker: order.ticker, owner: {$ne:order.issuer} }, { $inc: { prize: increment } }, { multi: true });
           nextPrize = order.price - currentValorization;
           UserPlayerBalances.insert({ owner: order.issuer, ticker: order.ticker, prize: nextPrize, lastPrize: order.price });
     
@@ -65,6 +67,10 @@ Meteor.methods({
 
       }
       return true;
+    },
+
+    'calculateUserBalancesAlways':function(){
+      return false;      
     },
 
     'updatePlayerCapitalization':function(ticker){

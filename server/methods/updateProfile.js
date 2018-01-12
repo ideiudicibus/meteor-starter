@@ -1,4 +1,4 @@
-Metheor.methods({
+Meteor.methods({
 
 
     'updateUserStripeProfile': (customer)=>{

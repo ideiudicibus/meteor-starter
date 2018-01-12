@@ -8,7 +8,7 @@ this.DigestPlayers = new Meteor.Collection('digestPlayers');
 this.Orders = new Mongo.Collection('orders');
 this.UserPlayerBalances = new Mongo.Collection('userPlayerBalances');
 
-this.BalancesTotal = new Mongo.Collection('balancesTotal');
+this.BalancesTotalPerOwner = new Mongo.Collection('balancesTotalPerOwner');
 this.UserBalancesTotal = new Mongo.Collection('userBalancesTotal');
 this.PricesHistory = new Mongo.Collection('pricesHistory')
 

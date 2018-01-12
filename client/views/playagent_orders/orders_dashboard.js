@@ -39,6 +39,39 @@ Template.ordersDashboard.helpers({
                 }
             ]
         };
+    },
+
+    userPlayerBalancesSettings:
+    function () {
+        return {
+            rowsPerPage: 10,
+            showFilter: false,
+            showColumnToggles: false,
+            showNavigationRowsPerPage: false,
+            fields: [
+                { key: 'ticker', label: 'Ticker' }, 
+                {
+                    key: 'prize',
+                    label: 'Prize',
+                    fn: function (value, object, key) { return Utils.formatMoneyEuro(value) },
+
+
+                },
+                {
+                    key: 'lastPrize',
+                    label: 'Order Prize',
+                    fn: function (value, object, key) { return Utils.formatMoneyEuro(value) },
+
+
+                },
+                {key:'user',label:'User',fn:(value,object,key)=>{
+                    if(value===Meteor.userId()) return 'Me'
+                    return 'Other user'
+                }},
+                {key:'createdAt',label:'Created At',
+                fn:function(value,object,key){return Utils.prettyDate(value)}}
+            ]
+        };
     }
 
     ,

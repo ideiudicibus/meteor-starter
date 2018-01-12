@@ -50,15 +50,26 @@
 
 
                                 <!-- center left-->
-                                <div class="col-md-6">
+                                <!--<div class="col-md-6">
                                         <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                         <i class="fa fa-heart"></i><span style="margin-left:10px"> My Balances</span>
                                                 </div>
                                                 <div class="panel-body">
-                                                        {{> reactiveTable collection=balancesTotals settings=balanceTotalsCollectionSettings}}
+                                                        {{> reactiveTable collection=balancesTotalPerOwner settings=balanceTotalsPerOwnerCollectionSettings}}
                                                 </div>
-                                                <!--/panel-body-->
+                                               
+                                        </div>
+                                </div>-->
+                                <div class="col-md-6">
+                                        <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                        <i class="fa fa-heart"></i><span style="margin-left:10px"> All User Player Balances (testing)</span>
+                                                </div>
+                                                <div class="panel-body">
+                                                        {{> reactiveTable collection=userPlayerBalances  settings=userPlayerBalancesSettings }}
+                                                </div>
+                                               
                                         </div>
                                 </div>
                                 <!--/col-->
