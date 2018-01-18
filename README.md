@@ -10,9 +10,8 @@ This branche has been decaffeinated using:
 
 [MIT License](http://choosealicense.com/licenses/mit/)
 
-Maintained by [Meteor Factory](https://meteorfactory.io). Professional Meteor development.
 
-This branch is mantained by me.
+This 1.5-BRANCH is mantained by i.deiudicibus.
 
 [![Meteor starter](https://raw.githubusercontent.com/yogiben/meteor-starter/master/readme/meteor-factory.jpg)](http://meteorfactory.io)
 
@@ -21,7 +20,7 @@ This branch is mantained by me.
 ```
 git clone https://github.com/ideiudicibus/meteor-starter.git myapp
 cd myapp
-git checkout 1.6-BRANCH
+git checkout 1.5-BRANCH
 meteor
 ```
 
@@ -80,16 +79,6 @@ Run it
 docker run --name mongodb -d mongo
 docker run -it --rm -p 3000:3000 --link mongodb:db -e "MONGO_URL=mongodb://db" -e "ROOT_URL=http://localhost:3000" myrepo/mymeteorapp
 ```
-
-### Screenshots ###
-![alt tag](https://raw.githubusercontent.com/yogiben/meteor-starter/master/readme/meteor-starter-5.png)
-![alt tag](https://raw.githubusercontent.com/yogiben/meteor-starter/master/readme/login.png)
-![alt tag](https://raw.githubusercontent.com/yogiben/meteor-starter/master/readme/profile.png)
-![alt tag](https://raw.githubusercontent.com/yogiben/meteor-starter/master/readme/like_comment.png)
-
-### Premium Support ###
-Have an urgent issue or want help with implementation? Start a conversation with [Meteor Factory](http://meteorfactory.io).
-
 
 ### what's in this fork ###
 Meteor@1.6 
