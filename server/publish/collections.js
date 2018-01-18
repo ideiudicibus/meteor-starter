@@ -154,7 +154,7 @@ Meteor.publish('posts', function() {
       
       var group= [{$match:filter},{$group: {_id: "$ticker", totalPrize: {$sum: "$prize"},totalBuy:{$sum:"$lastPrize"}}}];
       //var group= [{$match:filter},{$group: {_id: "$owner", totalPrize: {$sum: "$prize"},totalBuy:{$sum:"$lastPrize"}}}]
-      console.log(JSON.stringify(group));
+      //console.log(JSON.stringify(group));
       try
       {
         

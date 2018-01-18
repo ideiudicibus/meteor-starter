@@ -65,7 +65,7 @@ Template.afFileUpload.onCreated(function() {
 
 this._remove = function(fileId){
   const collection = getCollection(self.data);
-  let file=collection.findOne(fileId);
+  var file=collection.findOne(fileId);
 
   Meteor.call('removeFromCollection',file,(error,response)=>{
 
