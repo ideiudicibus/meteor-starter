@@ -13,7 +13,6 @@ This branche has been decaffeinated using:
 
 This 1.5-BRANCH is mantained by i.deiudicibus.
 
-[![Meteor starter](https://raw.githubusercontent.com/yogiben/meteor-starter/master/readme/meteor-factory.jpg)](http://meteorfactory.io)
 
 ### Setup ####
 
