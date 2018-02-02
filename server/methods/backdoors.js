@@ -15,15 +15,6 @@ Meteor.methods({
         console.log(e);
         throw new Meteor.Error(e);
       }
-    },
-    addSomeCashBackdoor(num) {
-      try {
-      
-       Meteor.users.update({},{$set:{"profile.playagentProfile.cashDeposit":num}},{multi:true});
-      }catch(e){
-        
-        throw new Meteor.Error(e);
-      }
     }
   }
 );

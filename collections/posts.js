@@ -33,15 +33,6 @@ Schemas.Posts = new SimpleSchema({
 		  }
 	  }
 	  },
-/*
-	content: {
-		type: String,
-		autoform: {
-			rows: 5
-		}
-	},
-
-	*/
 	createdAt: {
 		type: Date,
 		autoValue() {

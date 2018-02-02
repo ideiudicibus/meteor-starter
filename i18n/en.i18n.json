@@ -1,15 +1,15 @@
 {
 
 	/*Config*/
-	"configName": "PlayAgent",
-	"configTitle": "PlayAgent Web ",
-	"configSubtitle": "browse our players,see their careers, partecipate to their success and win with them",
+	"configName": "MyApp",
+	"configTitle": "MyApp ",
+	"configSubtitle": "MyApp subtitle",
 	
 	/*Home*/
 	"getstarted": "Get Started",
 	"dashboard": "Go to dashboard",
 	"learn": "Learn more",
-	"intro": "PlayAgent Web: decide whether you're a supporter or an agent",
+	"intro": "MyApp intro web Web-------------",
 	"how": "How It Works",
 	"step_1": "Step 1",
 	"step_1_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -19,7 +19,7 @@
 	"step_3_text": "Et ille ridens: Video, inquit, quid agas; Duo Reges: constructio interrete.",
 	"section_ipad_header": "A revolutionary product",
 	"section_ipad_text": "Do really cool stuff really quickly",
-	"section_ipad_btn": "Made by PlayAgent Web Lab",
+	"section_ipad_btn": "Made by --------- Web Lab",
 	"final_text": "FINAL TEXT",
 	"final_cta": "FINAL INVITE",
 

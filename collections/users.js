@@ -6,42 +6,8 @@
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
 
-Schemas.PlayagentProfile=new SimpleSchema({
- 
-  stripeCustomerId:{
-    type: String,
-    optional: true
-  },
-  
-  cashDeposit:{
-    type:Number,
-    optional:true,
-    defaultValue:0,
-    label:"Cash deposit",
-    autoform: {
-      disabled:true,
-      readonly:true
-    }
-  },
-  accountBalance:{
-    type:Number,
-    optional:true,
-    defaultValue:0,
-    label:"Account Balance",
-    autoform: {
-      disabled:true,
-      readonly:true
-    }
-  }
-
-});
 
 Schemas.UserProfile = new SimpleSchema({
-
-  playagentProfile: {
-    type: Schemas.PlayagentProfile,
-    optional: true
-  },
 
   picture: {
     type: String,

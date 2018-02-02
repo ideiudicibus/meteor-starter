@@ -6,7 +6,7 @@
  */
 this.Attachments = new FS.Collection("Attachments", {
 	stores: [
-		new FS.Store.FileSystem("attachments", {
+		new FS.Store.GridFS("attachments", {
 
 			transformWrite(fileObj, readStream, writeStream){
 				if (gm.isAvailable) {

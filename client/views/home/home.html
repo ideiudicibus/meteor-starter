@@ -28,7 +28,7 @@
                         <h1>{{Config.title}}</h1>
                         <h2 class="hidden-xs">{{Config.subtitle}}</h2>
                         {{#if User}}
-                        <a href="{{pathFor 'playagentHomeDashboard'}}" class="btn btn-success btn-large"><i class="fa fa-dashboard"></i> {{_ "dashboard"}}</a>
+                        <a href="{{pathFor 'postDashboard'}}" class="btn btn-success btn-large"><i class="fa fa-dashboard"></i> {{_ "dashboard"}}</a>
                         {{else}}
                         <a class="btn btn-hollow" href="{{pathFor 'atSignUp'}}">{{_ "getstarted"}}</a>
                         {{/if}}

@@ -6,7 +6,7 @@
  */
 this.ProfilePictures = new FS.Collection("profilePictures", {
 	stores: [
-		new FS.Store.FileSystem("images", {
+		new FS.Store.GridFS("images", {
 
 			transformWrite(fileObj, readStream, writeStream){
 				if (gm.isAvailable) {
@@ -16,7 +16,7 @@ this.ProfilePictures = new FS.Collection("profilePictures", {
 				}
 			}
 		}),
-		new FS.Store.FileSystem("thumbs", {
+		new FS.Store.GridFS("thumbs", {
 
 			transformWrite(fileObj, readStream, writeStream){
 				if (gm.isAvailable) {
